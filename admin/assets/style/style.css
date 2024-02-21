@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-width: 270px;
+    overflow-x: hidden;
+}
+:root {
+    --bg-color: #007205;
+    --bg-color-light: #2cff36;
+    --bg-color-dark: #009908;
+    --bg-color-secondary: #000000;
+    --text-color: #fff;
+    --text-color-secondary: #afafaf;
+}
+textarea {
+    resize: none;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--text-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--text-color-secondary);
+    border-radius: 5rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--bg-color) !important;
+    box-shadow: 0 0 .1rem .2rem var(--bg-color-light) !important;
+}
+
+#profile_gender .form-select,
+#library_hours_modal .form-select,
+#edit_fines .form-select,
+#links_modal .form-select {
+    width: 100% !important;
+}
+.form-select {
+    width: 5rem !important;
+}
+.w-lg-40 {
+    width: 40% !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.paginate_button {
+    margin: 3px !important;
+    padding: 0px !important;
+    border-radius: 4px !important;
+}
+
+.paginate_button a {
+    padding: 5px 20px !important;
+}
+
+.paginate_button a:hover, .paginate_button:hover a {
+    background: var(--text-color-secondary) !important;
+    color: var(--bg-color-secondary) !important;
+    border-radius: 4px !important;
+}
+.paginate_button.active:hover {
+    border: 1px solid var(--bg-color) !important;
+    border-radius: 4px !important;
+}
+.paginate_button.active a:hover {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--bg-color) !important;
+    border-radius: 4px !important;
+}
+
+.paginate_button.active a {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--bg-color) !important;
+    border-radius: 4px !important;
+    font-weight: bold;
+}
+
+.pageLengthSelect {
+    padding: 3px 10px !important;
+    margin: 5px 10px !important;
+}
+
+.fs-small {
+    font-size: .7rem;
+}
+.fs-smallest {
+    font-size: .6rem;
+}
+
+.admin-profile {
+    height: 100% !important;
+}
+
+.profile_picture {
+    width: 20vw ;
+}
+.bg-green {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px;
+    padding: 2px;
+}
+.btn-white {
+    background: var(--text-color);
+    border: 1px solid var(--text-color-secondary);
+    padding: 2px;
+}
+/* ---------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+
+#opacBG {
+    position: relative;
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+}
+
+#opacBG::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 128, 0, .5); /* Green color with 50% opacity */
+    z-index: 1 !important; /* Adjust the z-index as needed */
+}
+
+/* admin body  */
+#admin-body {
+    position: absolute;
+    right: 0;
+    width: 100%;
+}
+#pageHeader {
+    text-transform: uppercase;
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: .5rem;
+}
+#header_logo {
+    width: 200px;
+}
+/* admin body  */
+
+
+/* cvsu page design */
+section {
+    width: 100%;
+    min-height: 50vh;
+}
+/* cvsu page design */
+
+
+/* admin login */
+#adminLogin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.text-center img {
+    width: 20vw;
+}
+
+#adminLogin h2 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: .2rem;
+}
+
+#adminLogin form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+#adminLogin form #text-field {
+    position: relative;
+    border-bottom: 2px solid silver;
+    margin: 30px 0;
+}
+
+#adminLogin button {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 50px;
+    font-size: 75%;
+    width: 25%;
+    margin-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: .1rem;
+}
+
+#adminLogin #text-field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+/* admin login */
+
+
+/* admin sidebar */
+#sidebar {
+    position: fixed;
+    left: 0;
+    width: 280px;
+    height: 85vh;
+    border: 3px solid var(--bg-color);
+    border-radius: .5rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 100;
+    transition: .5s ease;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+#sidebar::-webkit-scrollbar-track {
+    background: var(--text-color);
+}
+#sidebar::-webkit-scrollbar-thumb {
+    background: var(--bg-color-dark);
+}
+
+#sidebar ul a {
+    color: var(--bg-color-secondary);
+}
+
+#sidebar ul button {
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--text-color-secondary) !important;
+}
+#adminLogoutBtn {
+    background: var(--bg-color);
+    color: var(--text-color) !important;
+}
+/* admin sidebar */
+
+
+.nav_bar {
+    transition: .5s ease;
+}
+.nav_bar:hover {
+    font-weight: bold;
+    transform: translateX(20px);
+    color: var(--bg-color-dark) !important;
+}
+
+
+/* admin transaction | remarks change of colors */
+.text-danger {
+    color: red;
+}
+
+.text-success {
+    color: green;
+}
+
+.text-warning {
+    color: orange;
+}
+/* admin transaction | remarks change of colors */
+
+/* documentaion */
+#documentaion {
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+#documentaion_nav {
+    position: fixed;
+    top: 150;
+    height: 70%;
+    width: 15%;
+    overflow-y: scroll;
+}
+#documentaion_content {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+/* documentaion */
+
+/* admin notification display */
+#notificationContainer {
+    display: none;
+    position: fixed;
+    top: 54; 
+    right: 10;
+    width: 300px;
+    z-index: 5000;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    border-left: 1px solid rgb(211, 211, 211);
+    border-right: 1px solid rgb(211, 211, 211);
+    padding: 10px;
+}
+/* ---------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+
+
+
+
+/* for responsive screen on cellphone */
+@media screen and (max-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
+    /* admin login */
+    #adminLogin {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 250px;
+    }
+    #adminLogin p {
+        font-size: .7rem;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid silver;
+    }
+
+    #adminLogin form {
+        padding: 0 40px;
+    }
+
+    #adminLogin form #text-field {
+        margin: 15px 0;
+    }
+
+    #adminLogin button {
+        text-align: center;
+        border-radius: 50px;
+        font-size: 75%;
+        width: 50%;
+        margin-bottom: 2.5px;
+        letter-spacing: .2rem;
+    }
+    /* admin login */
+
+
+    /* user create announcement */
+    .w-lg-40 {
+        width: 90% !important;
+    }
+
+    .post-text {
+        font-size: .3rem !important;
+    }
+    .post-text-icon {
+        font-size: .3rem !important;
+    }
+    /* user create announcement */
+
+
+    /* admin header | Sidebar toggle */
+    #sidebar.active {
+        left: 0px;
+    }
+    #sidebar {
+        left: -290px;
+    }
+    #toggle {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #toggle::before {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(-5px);
+        transition: .2s;
+    }
+    #toggle::after {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(5px);
+        transition: .2s;
+    }
+    #toggle.active::before {
+        transform: translateY(0px) rotate(45deg);
+    }
+    #toggle.active::after {
+        transform: translateY(0px) rotate(-45deg);
+    }
+    /* admin header | Sidebar toggle */
+
+    /* admin profile */
+    #see_profile_mobile {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    /* admin header | Sidebar toggle */
+    #sidebar.active {
+        left: 0px;
+    }
+    #sidebar {
+        left: -290px;
+    }
+    #toggle {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #toggle::before {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(-5px);
+        transition: .2s;
+    }
+    #toggle::after {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(5px);
+        transition: .2s;
+    }
+    #toggle.active::before {
+        transform: translateY(0px) rotate(45deg);
+    }
+    #toggle.active::after {
+        transform: translateY(0px) rotate(-45deg);
+    }
+    /* admin header | Sidebar toggle */
+}
