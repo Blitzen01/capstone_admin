@@ -38,7 +38,6 @@
                                 echo "<p><strong>Last Name: </strong>" . $row['user_familyName'] . "</p> ";
                                 echo "<p><strong>User Name: </strong>" . $row['user_username'] . "</p> ";
                                 echo "<p><strong>Email: </strong>" . $row['user_email'] . "</p> ";
-                                echo "<p><strong>Student Number: </strong>" . $row['user_student_number'] . "</p> ";
                                 echo "<p><strong>Faculty Number: </strong>" . $row['user_faculty_number'] . "</p> ";
                                 echo "<p><strong>Member Type: </strong>" . $row['user_member_type'] . "</p> ";
                             }
@@ -48,7 +47,7 @@
                                 <div class="px-3">
                                     <label for="permissionOption">Permission Options:</label>
                                     <select class="form-control" id="permissionOption" name="selectedOption">
-                                        <option value="default" selected>Select an option</option>
+                                        <option value="default" disabled selected>Select an option</option>
                                         <option value="Administrator">Administrator</option>
                                         <option value="Librarian">Librarian</option>
                                         <option value="Assistant Librarian">Assistant Librarian</option>

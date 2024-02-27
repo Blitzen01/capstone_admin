@@ -9,47 +9,7 @@
         exit;
     }
 ?>
-<!-- New Moderator Modal -->
-<div class="modal fade" id="new_moderator" tabindex="-1" aria-labelledby="new_moderator_modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="new_moderator_modal">New Moderator</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="../assets/script/php_script/new_moderator.php" method="post">
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName" required autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" required autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required autocomplete="off">
-                    </div>
-                    <hr>
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- New Moderator Modal -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -120,58 +80,109 @@
                     </table>
 
                     <h3>E-Library Users</h3>
-                    <table id="e_library_user" class="table table-sm nowrap table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>First Name</th>
-                                <th>Lastname</th>
-                                <th>Username</th>
-                                <th>CvSu Email</th>
-                                <th>Course</th>
-                                <th>Student No.</th>
-                                <th>Faculty Department</th>
-                                <th>Faculty No.</th>
-                                <th>Member Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $sql = "SELECT * FROM users";
-                                $result = $conn->query($sql);
+                    <div class="p-3">
+                        <h5>Faculty</h5>
+                        <table id="e_library_user_faculty" class="table table-sm nowrap table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Lastname</th>
+                                    <th>Username</th>
+                                    <th>CvSu Email</th>
+                                    <th>Department</th>
+                                    <th>Faculty No.</th>
+                                    <th>Member Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $sql = "SELECT * FROM users WHERE user_member_type = 'Faculty'";
+                                    $result = $conn->query($sql);
 
-                                // Check if the query was successful
-                                if ($result) {
-                                    // Check if there are rows in the result set
-                                    if ($result->num_rows > 0) {
-                                        ?>
-                                            <?php
-                                            while ($row = $result->fetch_assoc()) {
-                                                ?>
-                                                <tr>
-                                                    <td><?php echo $row["user_givenName"]; ?></td>
-                                                    <td><?php echo $row["user_familyName"]; ?></td>
-                                                    <td><?php echo $row["user_username"] ?></td>
-                                                    <td><?php echo $row["user_email"]; ?></td>
-                                                    <td><?php echo $row["user_student_course"]; ?></td>
-                                                    <td><?php echo $row["user_student_number"]; ?></td>
-                                                    <td><?php echo $row["user_faculty_department"]; ?></td>
-                                                    <td><?php echo $row["user_faculty_number"]; ?></td>
-                                                    <td><?php echo $row["user_member_type"]; ?></td>
-                                                </tr>
-                                                <?php
-                                            }
+                                    // Check if the query was successful
+                                    if ($result) {
+                                        // Check if there are rows in the result set
+                                        if ($result->num_rows > 0) {
                                             ?>
-                                        <?php
+                                                <?php
+                                                while ($row = $result->fetch_assoc()) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $row["user_givenName"]; ?></td>
+                                                        <td><?php echo $row["user_familyName"]; ?></td>
+                                                        <td><?php echo $row["user_username"] ?></td>
+                                                        <td><?php echo $row["user_email"]; ?></td>
+                                                        <td><?php echo $row["user_faculty_department"]; ?></td>
+                                                        <td><?php echo $row["user_faculty_number"]; ?></td>
+                                                        <td><?php echo $row["user_member_type"]; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                }
+                                                ?>
+                                            <?php
+                                        } else {
+                                            echo "No records found.";
+                                        }
                                     } else {
-                                        echo "No records found.";
+                                        // Display an error message if the query fails
+                                        echo "Error: " . $conn->error;
                                     }
-                                } else {
-                                    // Display an error message if the query fails
-                                    echo "Error: " . $conn->error;
-                                }
-                            ?>
-                        </tbody>
-                    </table>
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="px-3">
+                        <h5>Students</h5>
+                        <table id="e_library_user_students" class="table table-sm nowrap table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Lastname</th>
+                                    <th>Username</th>
+                                    <th>CvSu Email</th>
+                                    <th>Course</th>
+                                    <th>Student No.</th>
+                                    <th>Member Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $sql = "SELECT * FROM users WHERE user_member_type = 'Student'";
+                                    $result = $conn->query($sql);
+
+                                    // Check if the query was successful
+                                    if ($result) {
+                                        // Check if there are rows in the result set
+                                        if ($result->num_rows > 0) {
+                                            ?>
+                                                <?php
+                                                while ($row = $result->fetch_assoc()) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $row["user_givenName"]; ?></td>
+                                                        <td><?php echo $row["user_familyName"]; ?></td>
+                                                        <td><?php echo $row["user_username"] ?></td>
+                                                        <td><?php echo $row["user_email"]; ?></td>
+                                                        <td><?php echo $row["user_student_course"]; ?></td>
+                                                        <td><?php echo $row["user_student_number"]; ?></td>
+                                                        <td><?php echo $row["user_member_type"]; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                }
+                                                ?>
+                                            <?php
+                                        } else {
+                                            echo "No records found.";
+                                        }
+                                    } else {
+                                        // Display an error message if the query fails
+                                        echo "Error: " . $conn->error;
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Library Visitors</h3>
                     <table id="userView" class="table table-sm nowrap table-striped table-hover">
@@ -220,8 +231,23 @@
     <script>
         $(document).ready(function() {
                 var moderator =  $('#moderatorList').DataTable();
-                var moderator =  $('#e_library_user').DataTable();
+                var moderator =  $('#e_library_user_faculty').DataTable();
+                var moderator =  $('#e_library_user_students').DataTable();
                 var moderator =  $('#userView').DataTable();
         });
+
+        function checkPasswordMatch() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var passwordMatchElement = document.getElementById("passwordMatch");
+
+            if (password != confirmPassword) {
+                passwordMatchElement.innerHTML = "Passwords do not match!";
+                passwordMatchElement.setAttribute("style", "color: red"); // Set color to red for mismatch
+            } else {
+                passwordMatchElement.innerHTML = "Passwords match!";
+                passwordMatchElement.setAttribute("style", "color: green"); // Set color to green for match
+            }
+        }
     </script>
 </html>

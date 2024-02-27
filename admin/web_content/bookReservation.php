@@ -12,6 +12,7 @@
                 <thead class="table-success">
                     <tr>
                         <th>Action</th>
+                        <th>Status</th>
                         <th>Library Id</th>
                         <th>Name</th>
                         <th>Book Access No.</th>
@@ -41,18 +42,55 @@
                             ?>
                             <tr>
                                 <td>
-                                    <button class="btn btn-success btn-sm accept_request"
-                                            data-id="<?php echo $row["id"]; ?>"
-                                            data-libraryid="<?php echo $row["libraryid"]; ?>"
-                                            data-name="<?php echo $row["name"]; ?>"
-                                            data-course="<?php echo $row["courseSection"]; ?>"
-                                            data-email="<?php echo $row["email"]; ?>"
-                                            data-accessno="<?php echo $row["bookAccessNo"]; ?>"
-                                            data-title="<?php echo $row["bookTitle"]; ?>"
-                                            data-callno="<?php echo $row["bookCallNo"]; ?>"
-                                            data-pickup="<?php echo $row["pickupDate"]; ?>"
-                                            data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#process_reservation">Pick Up
-                                    </button> 
+                                    <?php
+                                        $status = $row['status'];
+                                        if($status == 'hold') {
+                                    ?>
+                                            <button class="btn btn-success btn-sm prepare_request"
+                                                data-id="<?php echo $row["id"]; ?>"
+                                                data-libraryid="<?php echo $row["libraryid"]; ?>"
+                                                data-name="<?php echo $row["name"]; ?>"
+                                                data-course="<?php echo $row["courseSection"]; ?>"
+                                                data-email="<?php echo $row["email"]; ?>"
+                                                data-accessno="<?php echo $row["bookAccessNo"]; ?>"
+                                                data-title="<?php echo $row["bookTitle"]; ?>"
+                                                data-callno="<?php echo $row["bookCallNo"]; ?>"
+                                                data-pickup="<?php echo $row["pickupDate"]; ?>"
+                                                data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#prepare_reservation">Prepare
+                                            </button>
+                                    <?php
+                                        } else if($status == 'preparing') {
+                                    ?>
+                                            <button class="btn btn-success btn-sm to_pickup_request"
+                                                data-id="<?php echo $row["id"]; ?>"
+                                                data-libraryid="<?php echo $row["libraryid"]; ?>"
+                                                data-name="<?php echo $row["name"]; ?>"
+                                                data-course="<?php echo $row["courseSection"]; ?>"
+                                                data-email="<?php echo $row["email"]; ?>"
+                                                data-accessno="<?php echo $row["bookAccessNo"]; ?>"
+                                                data-title="<?php echo $row["bookTitle"]; ?>"
+                                                data-callno="<?php echo $row["bookCallNo"]; ?>"
+                                                data-pickup="<?php echo $row["pickupDate"]; ?>"
+                                                data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#to_pickup_reservation">To Pick Up
+                                            </button>
+                                    <?php
+                                        } else if($status == 'to pickup') {
+                                    ?>
+                                            <button class="btn btn-success btn-sm accept_request"
+                                                data-id="<?php echo $row["id"]; ?>"
+                                                data-libraryid="<?php echo $row["libraryid"]; ?>"
+                                                data-name="<?php echo $row["name"]; ?>"
+                                                data-course="<?php echo $row["courseSection"]; ?>"
+                                                data-email="<?php echo $row["email"]; ?>"
+                                                data-accessno="<?php echo $row["bookAccessNo"]; ?>"
+                                                data-title="<?php echo $row["bookTitle"]; ?>"
+                                                data-callno="<?php echo $row["bookCallNo"]; ?>"
+                                                data-pickup="<?php echo $row["pickupDate"]; ?>"
+                                                data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#process_reservation">Picked Up
+                                            </button>
+                                    <?php
+                                        }
+                                    ?>
                                     <button class="btn btn-danger btn-sm decline_request"
                                             data-id="<?php echo $row["id"]; ?>"
                                             data-libraryid="<?php echo $row["libraryid"]; ?>"
@@ -66,6 +104,7 @@
                                             data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#deny_reservation">Decline
                                     </button>
                                 </td>
+                                <td><?php echo $row["status"]; ?></td>
                                 <td><?php echo $row["libraryid"]; ?></td>
                                 <td><?php echo $row["name"]; ?></td>
                                 <td><?php echo $row["bookAccessNo"]; ?></td>

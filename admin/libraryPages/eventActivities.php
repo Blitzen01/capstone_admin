@@ -39,33 +39,40 @@
                                     </button>
                                     
                                     <?php
-                                        // Get the current date
-                                        $currentDate = date("Y-m-d");
+                                        // Get the current year and month
+                                        $currentYear = date("Y");
+                                        $currentMonth = date("m");
 
-                                        // Format the current date to "Month Day, Year" format
-                                        $formattedCurrentDate = date("F j, Y", strtotime($currentDate));
-                                        
-                                        // SQL query to retrieve all events for the current day
-                                        $sql = "SELECT event_date, event_timeFrom, event_timeTo, event_title FROM events WHERE event_date = '$currentDate'";
+                                        // Get the first day of the current month
+                                        $firstDayOfMonth = date("Y-m-01", strtotime($currentYear . "-" . $currentMonth . "-01"));
+
+                                        // Get the last day of the current month
+                                        $lastDayOfMonth = date("Y-m-t", strtotime($currentYear . "-" . $currentMonth . "-01"));
+
+                                        // SQL query to retrieve all events for the current month
+                                        $sql = "SELECT event_date, event_timeFrom, event_timeTo, event_title FROM events WHERE event_date BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
 
                                         $result = $conn->query($sql);
 
                                         if ($result->num_rows > 0) {
-                                            // Events exist for the current day
+                                            // Events exist for the current month
                                             while($row = $result->fetch_assoc()) {
                                                 // Convert time format from 24-hour to 12-hour format
                                                 $timeFrom = date("h:i A", strtotime($row["event_timeFrom"]));
                                                 $timeTo = date("h:i A", strtotime($row["event_timeTo"]));
 
+                                                // Format the event date to "Month Day, Year" format
+                                                $formattedEventDate = date("F j, Y", strtotime($row["event_date"]));
+
                                                 ?>
-                                                    <div class='card shadow mt-2 p-2'>
-                                                        <p><?php echo $formattedCurrentDate; ?> <span class="fs-small"> <br> <?php echo $timeFrom . " - " . $timeTo; ?></span></p>
-                                                        <h4 class="text-center border-top  p-1"><?php echo $row['event_title']; ?></h4>
-                                                    </div>
+                                                <div class='card shadow mt-2 p-2'>
+                                                    <p><?php echo $formattedEventDate; ?> <span class="fs-small"> <br> <?php echo $timeFrom . " - " . $timeTo; ?></span></p>
+                                                    <h4 class="text-center border-top  p-1"><?php echo $row['event_title']; ?></h4>
+                                                </div>
                                                 <?php
                                             }
                                         } else {
-                                            echo "<div class='card mt-2 p-2'>There are no events today.</div>";
+                                            echo "<div class='card mt-2 p-2'>There are no events this month.</div>";
                                         }
                                     ?>
                                 </div>

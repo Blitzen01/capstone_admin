@@ -28,7 +28,7 @@
                     <div class="row">
                         <i class="fas fa-lock"></i>
                         <input id="password" type="password" name="password" placeholder="Password" required>
-                        <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        <span toggle="#password" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
                     </div>
                     <div class="pass"><a href="#">Forgot password?</a></div>
                     <div class="row button">
@@ -46,8 +46,8 @@
             togglePassword.addEventListener('click', function () {
                 const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
                 passwordField.setAttribute('type', type);
-                this.classList.toggle('fa-eye');
                 this.classList.toggle('fa-eye-slash');
+                this.classList.toggle('fa-eye');
             });
 
             setTimeout(function() {

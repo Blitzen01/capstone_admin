@@ -166,6 +166,104 @@
                     });
                 });
 
+                // Handle the click event on the "preparing" button
+                $('.prepare_request').click(function () {
+                    // Retrieve data attributes
+                    var id = $(this).data('id');
+                    var libraryId = $(this).data('libraryid');
+                    var name = $(this).data('name');
+                    var course = $(this).data('course');
+                    var email = $(this).data('email');
+                    var accessNo = $(this).data('accessno');
+                    var title = $(this).data('title');
+                    var callNo = $(this).data('callno');
+                    var pickupDate = $(this).data('pickup');
+                    var returnDate = $(this).data('return');
+
+                    // Set data in the modal
+                    $('#prepare_modalId').text(id);
+                    $('#prepare_modalLibraryId').text(libraryId);
+                    $('#prepare_modalName').text(name);
+                    $('#prepare_modalCourse').text(course);
+                    $('#prepare_modalEmail').text(email);
+                    $('#prepare_modalAccessNo').text(accessNo);
+                    $('#prepare_modalTittle').text(title);
+                    $('#prepare_modalCallNo').text(callNo);
+                    $('#prepare_modalPickUpDate').text(pickupDate);
+                    $('#prepare_modalReturnDate').text(returnDate);
+
+                    // Show the modal
+                    $('#prepare_reservation').modal('show');
+
+                    // Handle the 'prepare' button click
+                    $('#prepare_reservation .btn-success').click(function () {
+                        // Construct the URL with query parameters
+                        var redirectUrl = '../render/bookCirculation/prepare_reservation.php' +
+                            '?id=' + encodeURIComponent(id) +
+                            '&libraryId=' + encodeURIComponent(libraryId) +
+                            '&name=' + encodeURIComponent(name) +
+                            '&course=' + encodeURIComponent(course) +
+                            '&email=' + encodeURIComponent(email) +
+                            '&accessNo=' + encodeURIComponent(accessNo) +
+                            '&title=' + encodeURIComponent(title) +
+                            '&callno=' + encodeURIComponent(callNo) +
+                            '&pickupDate=' + encodeURIComponent(pickupDate) +
+                            '&returnDate=' + encodeURIComponent(returnDate);
+
+                        // Redirect to the new page
+                        window.location.href = redirectUrl;
+                    });
+                });
+
+                // Handle the click event on the "To pick up" button
+                $('.to_pickup_request').click(function () {
+                    // Retrieve data attributes
+                    var id = $(this).data('id');
+                    var libraryId = $(this).data('libraryid');
+                    var name = $(this).data('name');
+                    var course = $(this).data('course');
+                    var email = $(this).data('email');
+                    var accessNo = $(this).data('accessno');
+                    var title = $(this).data('title');
+                    var callNo = $(this).data('callno');
+                    var pickupDate = $(this).data('pickup');
+                    var returnDate = $(this).data('return');
+
+                    // Set data in the modal
+                    $('#to_pickup_modalId').text(id);
+                    $('#to_pickup_modalLibraryId').text(libraryId);
+                    $('#to_pickup_modalName').text(name);
+                    $('#to_pickup_modalCourse').text(course);
+                    $('#to_pickup_modalEmail').text(email);
+                    $('#to_pickup_modalAccessNo').text(accessNo);
+                    $('#to_pickup_modalTittle').text(title);
+                    $('#to_pickup_modalCallNo').text(callNo);
+                    $('#to_pickup_modalPickUpDate').text(pickupDate);
+                    $('#to_pickup_modalReturnDate').text(returnDate);
+
+                    // Show the modal
+                    $('#to_pickup_reservation').modal('show');
+
+                    // Handle the 'prepare' button click
+                    $('#to_pickup_reservation .btn-success').click(function () {
+                        // Construct the URL with query parameters
+                        var redirectUrl = '../render/bookCirculation/topickup_reservation.php' +
+                            '?id=' + encodeURIComponent(id) +
+                            '&libraryId=' + encodeURIComponent(libraryId) +
+                            '&name=' + encodeURIComponent(name) +
+                            '&course=' + encodeURIComponent(course) +
+                            '&email=' + encodeURIComponent(email) +
+                            '&accessNo=' + encodeURIComponent(accessNo) +
+                            '&title=' + encodeURIComponent(title) +
+                            '&callno=' + encodeURIComponent(callNo) +
+                            '&pickupDate=' + encodeURIComponent(pickupDate) +
+                            '&returnDate=' + encodeURIComponent(returnDate);
+
+                        // Redirect to the new page
+                        window.location.href = redirectUrl;
+                    });
+                });
+
                 // Handle the click event on the "Decline" button
                 $('.decline_request').click(function () {
                     // Retrieve data attributes

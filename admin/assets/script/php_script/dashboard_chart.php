@@ -47,7 +47,7 @@
     // Fetch all rows from the result set into an array
     while ($row1 = mysqli_fetch_assoc($result1)) {
         // Extract the text part of the courseSection
-        $courseText = explode('-', $row1['courseSection'])[0];
+        $courseText = explode(' ', $row1['courseSection'])[0];
         
         // Add course section text to labels array
         $labels1[] = $courseText;

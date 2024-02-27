@@ -30,7 +30,7 @@
                 <p><strong>Course:</strong> <span id="process_modalCourse"></span></p>
                 <p><strong>Email:</strong> <span id="process_modalEmail"></span></p>
                 <p><strong>Access No.:</strong> <span id="process_modalAccessNo"></span></p>
-                <p><strong>Tittle:</strong> <span id="process_modalTittle"></span></p>
+                <p><strong>Title:</strong> <span id="process_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="process_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="process_modalPickUpDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="process_modalReturnDate"></span></p>
@@ -43,6 +43,64 @@
     </div>
 </div>
 <!-- Process Reservation Modal -->
+
+<!-- Prepare Reservation Modal -->
+<div class="modal fade" id="prepare_reservation" tabindex="-1" aria-labelledby="prepare_reservation_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="prepare_reservation_modal">Prepare Reservation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>ID:</strong> <span id="prepare_modalId"></span></p>
+                <p><strong>Library ID:</strong> <span id="prepare_modalLibraryId"></span></p>
+                <p><strong>Name:</strong> <span id="prepare_modalName"></span></p>
+                <p><strong>Course:</strong> <span id="prepare_modalCourse"></span></p>
+                <p><strong>Email:</strong> <span id="prepare_modalEmail"></span></p>
+                <p><strong>Access No.:</strong> <span id="prepare_modalAccessNo"></span></p>
+                <p><strong>Title:</strong> <span id="prepare_modalTittle"></span></p>
+                <p><strong>Call No.:</strong> <span id="prepare_modalCallNo"></span></p>
+                <p><strong>Pick up Date:</strong> <span id="prepare_modalPickUpDate"></span></p>
+                <p><strong>Return Date:</strong> <span id="prepare_modalReturnDate"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success">Prepare</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Prepare Reservation Modal -->
+
+<!-- To Pick Up Reservation Modal -->
+<div class="modal fade" id="to_pickup_reservation" tabindex="-1" aria-labelledby="to_pickup_reservation_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="to_pickup_reservation_modal">To Pick Up Reservation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>ID:</strong> <span id="to_pickup_modalId"></span></p>
+                <p><strong>Library ID:</strong> <span id="to_pickup_modalLibraryId"></span></p>
+                <p><strong>Name:</strong> <span id="to_pickup_modalName"></span></p>
+                <p><strong>Course:</strong> <span id="to_pickup_modalCourse"></span></p>
+                <p><strong>Email:</strong> <span id="to_pickup_modalEmail"></span></p>
+                <p><strong>Access No.:</strong> <span id="to_pickup_modalAccessNo"></span></p>
+                <p><strong>Title:</strong> <span id="to_pickup_modalTittle"></span></p>
+                <p><strong>Call No.:</strong> <span id="to_pickup_modalCallNo"></span></p>
+                <p><strong>Pick up Date:</strong> <span id="to_pickup_modalPickUpDate"></span></p>
+                <p><strong>Return Date:</strong> <span id="to_pickup_modalReturnDate"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success">To Pick Up</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- To Pick Up Reservation Modal -->
 
 <!-- Deny Reservation Modal -->
 <div class="modal fade" id="deny_reservation" tabindex="-1" aria-labelledby="deny_reservation_modal" aria-hidden="true">
@@ -59,7 +117,7 @@
                 <p><strong>Course:</strong> <span id="deny_modalCourse"></span></p>
                 <p><strong>Email:</strong> <span id="deny_modalEmail"></span></p>
                 <p><strong>Access No.:</strong> <span id="deny_modalAccessNo"></span></p>
-                <p><strong>Tittle:</strong> <span id="deny_modalTittle"></span></p>
+                <p><strong>Title:</strong> <span id="deny_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="deny_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="deny_modalPickUpDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="deny_modalReturnDate"></span></p>
@@ -107,18 +165,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <p><strong>Fine:</strong> <span class="fs-3 text-danger"> ₱<span id="damage_modalfine"></span></span></p>
                 <p><strong>ID:</strong> <span id="damage_modalId"></span></p>
                 <p><strong>Library ID:</strong> <span id="damage_modalLibraryId"></span></p>
                 <p><strong>Name:</strong> <span id="damage_modalName"></span></p>
                 <p><strong>Course:</strong> <span id="damage_modalCourse"></span></p>
                 <p><strong>Email:</strong> <span id="damage_modalEmail"></span></p>
                 <p><strong>Access No.:</strong> <span id="damage_modalAccessNo"></span></p>
-                <p><strong>Tittle:</strong> <span id="damage_modalTittle"></span></p>
+                <p><strong>Title:</strong> <span id="damage_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="damage_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="damage_modalPickUpDate"></span></p>
                 <p><strong>Due Date:</strong> <span id="damage_modalDueDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="damage_modalReturnDate"></span></p>
-                <p><strong>Fine:</strong> <span id="damage_modalfine"></span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger">Damage</button>
@@ -138,18 +196,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <p><strong>Fine:</strong> <span class="fs-3 text-danger"> ₱<span id="missing_modalfine"></span></span></p>
                 <p><strong>ID:</strong> <span id="missing_modalId"></span></p>
                 <p><strong>Library ID:</strong> <span id="missing_modalLibraryId"></span></p>
                 <p><strong>Name:</strong> <span id="missing_modalName"></span></p>
                 <p><strong>Course:</strong> <span id="missing_modalCourse"></span></p>
                 <p><strong>Email:</strong> <span id="missing_modalEmail"></span></p>
                 <p><strong>Access No.:</strong> <span id="missing_modalAccessNo"></span></p>
-                <p><strong>Tittle:</strong> <span id="missing_modalTittle"></span></p>
+                <p><strong>Title:</strong> <span id="missing_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="missing_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="missing_modalPickUpDate"></span></p>
                 <p><strong>Due Date:</strong> <span id="missing_modalDueDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="missing_modalReturnDate"></span></p>
-                <p><strong>Fine:</strong> <span id="missing_modalfine"></span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning">Missing</button>
@@ -169,18 +227,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <p><strong>Fine:</strong><span class="fs-3 text-danger"> ₱<span id="return_modalfine"></span></span></p>
                 <p><strong>ID:</strong> <span id="return_modalId"></span></p>
                 <p><strong>Library ID:</strong> <span id="return_modalLibraryId"></span></p>
                 <p><strong>Name:</strong> <span id="return_modalName"></span></p>
                 <p><strong>Course:</strong> <span id="return_modalCourse"></span></p>
                 <p><strong>Email:</strong> <span id="return_modalEmail"></span></p>
                 <p><strong>Access No.:</strong> <span id="return_modalAccessNo"></span></p>
-                <p><strong>Tittle:</strong> <span id="return_modalTittle"></span></p>
+                <p><strong>Title:</strong> <span id="return_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="return_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="return_modalPickUpDate"></span></p>
                 <p><strong>Due Date:</strong> <span id="return_modalDueDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="return_modalReturnDate"></span></p>
-                <p><strong>Fine:</strong> <span id="return_modalfine"></span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="book_return">Return</button>
@@ -1027,3 +1085,54 @@
     </div>
 </div>
 <!-- Acquisition Modal -->
+
+<!-- New Moderator Modal -->
+<div class="modal fade" id="new_moderator" tabindex="-1" aria-labelledby="new_moderator_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="new_moderator_modal">New Moderator</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../assets/script/php_script/new_moderator.php" method="post">
+                    <div class="mb-3">
+                        <label for="facultyNumber" class="form-label">Faculty Number</label>
+                        <input type="text" class="form-control" id="facultyNumber" name="facultyNumber" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required autocomplete="off" onkeyup="checkPasswordMatch();">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required autocomplete="off" onkeyup="checkPasswordMatch();">
+                        <div id="passwordMatch"></div>
+                    </div>
+                    <hr>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- New Moderator Modal -->

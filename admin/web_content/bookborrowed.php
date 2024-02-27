@@ -111,8 +111,8 @@
                                         // If negative, display "days left"
                                         echo "left";
                                     } else {
-                                        $sgcFine = "SELECT links FROM librarypages WHERE mainText = 'student' AND subText = 'general circulation'";
-                                        $resultSgcFine = $conn->query($sgcFine);
+                                        $student_general_circulation_fine = "SELECT links FROM librarypages WHERE mainText = 'student' AND subText = 'general circulation'";
+                                        $resultSgcFine = $conn->query($student_general_circulation_fine);
 
                                         if ($resultSgcFine->num_rows > 0) {
                                             $rowSgcFine = $resultSgcFine->fetch_assoc();
@@ -124,13 +124,15 @@
                                             // Display the calculated fine
                                             echo ('₱'), $fine;
                                         }
+
+                                        // Update the penalty in the database
+                                        $updateQuery = "UPDATE bookborrowed SET fine = ? WHERE id = ?";
+                                        $stmt = $conn->prepare($updateQuery);
+                                        $stmt->bind_param("ii", $fine, $id);
+                                        $stmt->execute();
                                     }
 
-                                    // Update the penalty in the database
-                                    $updateQuery = "UPDATE bookborrowed SET fine = ? WHERE id = ?";
-                                    $stmt = $conn->prepare($updateQuery);
-                                    $stmt->bind_param("ii", $fine, $id);
-                                    $stmt->execute();
+                                    
                                 ?>
                                 
                             </td>
