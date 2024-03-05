@@ -5,6 +5,7 @@
                                 <table id="userList_faculty" class="table table-sm nowrap table-striped table-hover">
                                     <thead>
                                         <tr>
+                                            <th>Action</th>
                                             <th>First Name</th>
                                             <th>Lastname</th>
                                             <th>Username</th>
@@ -28,6 +29,7 @@
                                                         while ($row = $result->fetch_assoc()) {
                                                             ?>
                                                             <tr>
+                                                                <td><button class="nav-link text-success" onclick="get_faculty_details(<?php echo $row['user_id']; ?>)">View</button></td>
                                                                 <td><?php echo $row["user_givenName"]; ?></td>
                                                                 <td><?php echo $row["user_familyName"]; ?></td>
                                                                 <td><?php echo $row["user_username"] ?></td>
@@ -56,6 +58,7 @@
                                 <table id="userList_student" class="table table-sm nowrap table-striped table-hover">
                                     <thead>
                                         <tr>
+                                            <th>Action</th>
                                             <th>First Name</th>
                                             <th>Lastname</th>
                                             <th>Username</th>
@@ -79,6 +82,7 @@
                                                         while ($row = $result->fetch_assoc()) {
                                                             ?>
                                                             <tr>
+                                                                <td><button class="nav-link text-success" id="userDetails" onclick="get_student_details(<?php echo $row['user_id']; ?>)">View</button></td>
                                                                 <td><?php echo $row["user_givenName"]; ?></td>
                                                                 <td><?php echo $row["user_familyName"]; ?></td>
                                                                 <td><?php echo $row["user_username"] ?></td>

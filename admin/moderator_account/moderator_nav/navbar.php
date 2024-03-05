@@ -5,8 +5,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+        <li><a class="nav-link" href="books.php">Books</a></li>
+      </ul>
       <div class="navbar-nav ms-auto">
-        <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">Logout</a>
+        <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">Logout</a>
       </div>
     </div>
   </div>

@@ -47,7 +47,7 @@
         // Loop through each reservation and echo the data
         foreach ($reservations as $reservation) {
             ?>
-            <a class="nav-link" href="../admin/circulation.php#bookreserve?name=<?php echo urlencode($reservation['name']); ?>">
+            <a class="nav-link reservation-item" href="../admin/circulation.php#bookreserve?name=<?php echo urlencode($reservation['name']); ?>">
               <div class="px-2">
                   <div class="col">
                       <div class="row">

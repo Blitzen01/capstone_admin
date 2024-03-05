@@ -60,6 +60,37 @@
                 });
             });
 
+            function get_student_details(userId) {
+                // AJAX request to fetch user details by userId
+                // Assuming you have a PHP file named getUserDetails.php to handle this request
+                $.ajax({
+                    url: '../assets/script/php_script/get_student_details.php',
+                    type: 'post',
+                    data: {
+                        userId: userId
+                    },
+                    success: function(response) {
+                        $('#userDetails').html(response);
+                        $('#userModal').modal('show'); // Show modal with user details
+                    }
+                });
+            }
+
+            function get_faculty_details(userId) {
+                // AJAX request to fetch user details by userId
+                // Assuming you have a PHP file named getUserDetails.php to handle this request
+                $.ajax({
+                    url: '../assets/script/php_script/get_faculty_details.php',
+                    type: 'post',
+                    data: {
+                        userId: userId
+                    },
+                    success: function(response) {
+                        $('#userDetails').html(response);
+                        $('#userModal').modal('show'); // Show modal with user details
+                    }
+                });
+            }
         </script>
     </body>
 </html>

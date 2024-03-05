@@ -23,6 +23,7 @@
                 // Redirect to the admin panel or moderator dashboard upon successful login
                 session_start();
                 $_SESSION['username_moderator'] = $username;
+                $_SESSION['password_moderator'] = $password;
                 header("Location: dashboard.php");
                 exit;
             }

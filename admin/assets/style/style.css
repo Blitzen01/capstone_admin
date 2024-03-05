@@ -236,10 +236,14 @@ section {
 #sidebar::-webkit-scrollbar {
     width: 5px;
 }
-#sidebar::-webkit-scrollbar-track {
-    background: var(--text-color);
+#sidebar:hover::-webkit-scrollbar-track {
+    background: none;
 }
 #sidebar::-webkit-scrollbar-thumb {
+    background: none;
+    transition: .5s ease-out;
+}
+#sidebar:hover::-webkit-scrollbar-thumb {
     background: var(--bg-color-dark);
 }
 
@@ -317,9 +321,12 @@ section {
     padding: 10px;
 }
 
-/* admin events calendar */
-
-/* admin events calendar */
+/* admin notification */
+.reservation-item:hover {
+    background-color: #dddddd ;
+    transition: background-color 0.2s ease;
+}
+/* admin notification */
 
 
 /* ---------------------------------------------------------------------- */

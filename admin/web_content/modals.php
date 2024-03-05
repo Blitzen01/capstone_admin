@@ -177,6 +177,11 @@
                 <p><strong>Pick up Date:</strong> <span id="damage_modalPickUpDate"></span></p>
                 <p><strong>Due Date:</strong> <span id="damage_modalDueDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="damage_modalReturnDate"></span></p>
+
+                <div class="mb-3">
+                    <label for="damageType" class="form-label">Damage Type:</label>
+                    <input type="text" class="form-control" id="damageType" name="damageType" required>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger">Damage</button>
@@ -1136,3 +1141,64 @@
     </div>
 </div>
 <!-- New Moderator Modal -->
+
+<!-- user details Modal -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">User Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="userDetails">
+                <!-- User details will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- user details Modal -->
+
+<!-- confirm password | update books Modal -->
+<div class="modal fade" id="updateBooksModal" tabindex="-1" aria-labelledby="updateBooksModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateBooksModalLabel">Confirm Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="passwordForm">
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="passwordInput" name="password" oninput="checkPassword()">
+                    </div>
+                    <p id="passwordStatus"></p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="submitButton" type="button" class="book_update_password_confirm btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- confirm password | update books Modal -->
+
+<!-- update book list Modal -->
+<div class="modal fade" id="update_books_modal" tabindex="-1" aria-labelledby="update_books_modal_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="update_books_modal_label">Update list of Books</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn btn-success"><h4>UPDATE BOOK LIST</h4></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- update book list Modal -->

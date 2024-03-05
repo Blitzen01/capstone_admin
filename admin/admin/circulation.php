@@ -413,6 +413,9 @@
 
                     // Handle the 'Damage' button click
                     $('#book_damage .btn-danger').click(function () {
+                        
+                        var damageType = $('#damageType').val(); 
+
                         // Construct the URL with query parameters
                         var redirectUrl = '../render/bookCirculation/book_damage.php' +
                             '?id=' + encodeURIComponent(id) +
@@ -426,7 +429,8 @@
                             '&pickupDate=' + encodeURIComponent(pickupDate) +
                             '&dueDate=' + encodeURIComponent(dueDate) +
                             '&returnDate=' + encodeURIComponent(returnDate) +
-                            '&fine='+ encodeURIComponent(fine);
+                            '&fine='+ encodeURIComponent(fine) +
+                            '&damageType=' + encodeURIComponent(damageType);
 
                         // Redirect to the new page
                         window.location.href = redirectUrl;
