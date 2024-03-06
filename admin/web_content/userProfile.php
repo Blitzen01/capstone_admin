@@ -13,7 +13,7 @@
                         <?php
                     } else {
                         ?>
-                        <img class="profile_picture border border-dark rounded-circle shadow" src="../render/uploads/images/profile_picture.jpg" alt="">
+                        <img class="profile_picture border border-dark rounded-circle shadow" src="../assets/image/uploaded_profile/blank_profile_picture.png" alt="">
                         <?php
                     }
                     ?>

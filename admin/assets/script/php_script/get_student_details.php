@@ -22,21 +22,39 @@ if(isset($_POST['userId'])) {
             // Fetch the user details
             $user_row = $user_result->fetch_assoc();
 
+            $user_picture = $user_row['user_picture'];
+            $user_picture_without_prefix = str_replace("../", "", $user_picture);
+
             // Format the "Created" date and time
             $created_date = date("F d, Y", strtotime($user_row["user_created"])); // Format date as "January 22, 2001"
             $created_time = date("h:i A", strtotime($user_row["user_created"])); // Format time in 12-hour format
 
             // Output the user details in HTML format
-            echo "<p><strong>User Id:</strong> " . $user_row["user_id"] . "</p>";
-            echo "<p><strong>Full Name:</strong> " . $user_row["user_fullname"] . "</p>";
-            echo "<p><strong>Username:</strong> " . $user_row["user_username"] . "</p>";
-            echo "<p><strong>Email:</strong> " . $user_row["user_email"] . "</p>";
-            echo "<p><strong>Course:</strong> " . $user_row["user_student_course"] . "</p>";
-            echo "<p><strong>Year:</strong> " . $user_row["user_student_year"] . "</p>";
-            echo "<p><strong>Section:</strong> " . $user_row["user_student_section"] . "</p>";
-            echo "<p><strong>Student Number:</strong> " . $user_row["user_student_number"] . "</p>";
-            echo "<p><strong>Member Type:</strong> " . $user_row["user_member_type"] . "</p>";
-            echo "<p><strong>Created:</strong> " . $created_date . " at " . $created_time . "</p>";
+            if ($user_picture !== null && $user_picture !== '') {
+            ?>
+                <div class="text-center">
+                    <img class="border border-success border-3 rounded mb-3" src='../../user/<?php echo $user_picture_without_prefix; ?>' alt='' srcset='' style="width:7rem;">
+                </div>
+            <?php
+            } else {
+            ?>
+                <div class="text-center">
+                    <img class="border border-success border-3 rounded mb-3" src='../assets/image/uploaded_profile/blank_profile_picture.png' alt='' srcset='' style="width:7rem;">
+                </div>
+            <?php
+            }
+            ?>
+                <p><strong>Full Name:</strong> <?php echo $user_row["user_fullname"]; ?></p>
+                <p><strong>User Id:</strong> <?php echo $user_row["user_id"]; ?></p>
+                <p><strong>Username:</strong> <?php echo $user_row["user_username"]; ?></p>
+                <p><strong>Email:</strong> <?php echo $user_row["user_email"]; ?></p>
+                <p><strong>Course:</strong> <?php echo $user_row["user_student_course"]; ?></p>
+                <p><strong>Year:</strong> <?php echo $user_row["user_student_year"]; ?></p>
+                <p><strong>Section:</strong> <?php echo $user_row["user_student_section"]; ?></p>
+                <p><strong>Student Number:</strong> <?php echo $user_row["user_student_number"]; ?></p>
+                <p><strong>Member Type:</strong> <?php echo $user_row["user_member_type"]; ?></p>
+                <p><strong>Account Created:</strong> <?php echo $created_date . " at " . $created_time; ?></p>
+            <?php
 
             // Check if there are any book transactions
             if ($book_result->num_rows > 0) {

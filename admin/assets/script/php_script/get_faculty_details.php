@@ -21,20 +21,37 @@ if(isset($_POST['userId'])) {
             // Fetch the user details from the first row
             $user_row = $rows[0];
 
+            $user_picture = $user_row['user_picture'];
+            $user_picture_without_prefix = str_replace("../", "", $user_picture);
+
             // Format the "Created" date and time
             $created_date = date("F d, Y", strtotime($user_row["user_created"])); // Format date as "January 22, 2001"
             $created_time = date("h:i A", strtotime($user_row["user_created"])); // Format time in 12-hour format
 
-            // Output the user details in HTML format
-            echo "<p><strong>User Id:</strong> " . $user_row["user_id"] . "</p>";
-            echo "<p><strong>Full Name:</strong> " . $user_row["user_fullname"] . "</p>";
-            echo "<p><strong>Username:</strong> " . $user_row["user_username"] . "</p>";
-            echo "<p><strong>Email:</strong> " . $user_row["user_email"] . "</p>";
-            echo "<p><strong>Member Type:</strong> " . $user_row["user_member_type"] . "</p>";
-            echo "<p><strong>Faculty Department:</strong> " . $user_row["user_faculty_department"] . "</p>";
-            echo "<p><strong>Faculty Number:</strong> " . $user_row["user_faculty_number"] . "</p>";
-            echo "<p><strong>Created:</strong> " . $created_date . " at " . $created_time . "</p>";
-
+            // Check if $user_picture is not null and not an empty string
+            if ($user_picture !== null && $user_picture !== '') {
+            ?>
+                <div class="text-center">
+                    <img class="border border-success border-3 rounded mb-3" src='../../user/<?php echo $user_picture_without_prefix; ?>' alt='' srcset='' style="width:7rem;">
+                </div>
+            <?php
+            } else {
+            ?>
+                <div class="text-center">
+                    <img class="border border-success border-3 rounded mb-3" src='../assets/image/uploaded_profile/blank_profile_picture.png' alt='' srcset='' style="width:7rem;">
+                </div>
+            <?php
+            }
+            ?>
+            <p><strong>User Id:</strong> <?php echo $user_row["user_id"]; ?></p>
+            <p><strong>Full Name:</strong> <?php echo $user_row["user_fullname"]; ?></p>
+            <p><strong>Username:</strong> <?php echo $user_row["user_username"]; ?></p>
+            <p><strong>Email:</strong> <?php echo $user_row["user_email"]; ?></p>
+            <p><strong>Member Type:</strong> <?php echo $user_row["user_member_type"]; ?></p>
+            <p><strong>Faculty Department:</strong> <?php echo $user_row["user_faculty_department"]; ?></p>
+            <p><strong>Faculty Number:</strong> <?php echo $user_row["user_faculty_number"]; ?></p>
+            <p><strong>Created:</strong> <?php echo $created_date . " at " . $created_time; ?></p>
+            <?php
             // Output book transaction details
             echo "<h3 class='pt-3'>Book Transactions</h3><hr>";
             foreach ($rows as $row) {

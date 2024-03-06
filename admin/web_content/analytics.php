@@ -202,12 +202,19 @@
         </div>
         <div class="col"><br>
             <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-0">
+                <div class="card shadow p-2 mb-4">
+                    <span>
+                        <i class="fa-solid fa-chart-line text-success"></i>
+                        <span><strong>27873</strong></span> total views,
+                        <span><strong>24</strong></span> views today
+                    </span>
+                </div>
                 <div class="card shadow">
                     <h3>Top Library Users</h3>
                     <div id="pieChartBox"class="col-sm-10 col m-1">
                         <p>(By Courses)</p>
-                    <canvas id="myChart"></canvas>
-                </div>
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
